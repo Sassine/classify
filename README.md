@@ -7,7 +7,7 @@ Example:
 jdbc:mysql://localhost:3306/classify_service?autoReconnect=true&useTimezone=true&serverTimezone=UTC&&allowPublicKeyRetrieval=true&useSSL=false&user=dev&password=123
 ```
 
-##### Start project OR Build (.jar || .war) file
+##### Start project or Build (.war) file in build.sh
 Acess your adress Ex:"localhost:8080" 
 click in "**Configurações**" 
 set login and password to generate token

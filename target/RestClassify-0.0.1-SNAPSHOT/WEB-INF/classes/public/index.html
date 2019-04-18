@@ -1,0 +1,184 @@
+<link rel="stylesheet" type="text/css" href="static/semantic.min.css">
+<link rel="stylesheet" type="text/css" href="static/range.css">
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<script src="static/semantic.min.js"></script>
+<script src="static/range.js"></script>
+
+<style>
+    body {
+        background-color: slategray;
+        overflow: hidden;
+
+    }
+</style>
+
+<script>
+    function config() {
+        $('.ui.modal').modal({
+            blurring: true
+        }).modal('show');
+    }
+    var token;
+
+    function save() {
+        getTokenAndSaveAdress();
+    }
+
+    function getTokenAndSaveAdress() {
+        let login = $("input[name=user]").val();
+        let password = $("input[name=pass]").val();
+        $.ajax({
+            type: "POST",
+            url: window.location.href + "login",
+            data: JSON.stringify({
+                'username': login,
+                'password': password,
+            }),
+            contentType: "application/json"
+        }).then(function (dados) {
+            token = dados;
+            saveAdressAta();
+            saveAdressPublicacao();
+        }).catch(function (err) {
+            console.error('Oh não!!', err.statusText);
+        });
+    }
+
+    function saveAdressAta() {
+        let urlAta = $("input[name=ata]").val();
+        $.ajax({
+            type: "POST",
+            beforeSend: function (request) {
+                request.setRequestHeader("token", token);
+            },
+            url: window.location.href + "api/v1/adress",
+            data: JSON.stringify({
+                'type': 'ATA',
+                'url': urlAta,
+            }),
+            contentType: "application/json"
+        }).done();
+    }
+
+    function saveAdressPublicacao() {
+        let urlPublication = $("input[name=publication]").val();
+        $.ajax({
+            type: "POST",
+            beforeSend: function (request) {
+                request.setRequestHeader("token", token);
+            },
+            url: window.location.href + "api/v1/adress",
+            data: JSON.stringify({
+                'type': 'PUBLICATION',
+                'url': urlPublication,
+            }),
+            contentType: "application/json"
+        }).done();
+    }
+    $(document).ready(function () {
+        $('#range-3').range({
+            min: 0,
+            max: 100,
+            start: 65,
+            onChange: function (value) {
+                $('#display-3').html(value);
+            }
+        });
+        $('#rangeConf').css({
+            'position': 'absolute',
+            'top': '-3px',
+            'left': '318px',
+            'width': '100%'
+        });
+    });
+</script>
+
+<body>
+    <div class="ui raised very padded text container segment" style="margin-top: 2%">
+        <h2 class="ui header">Teste BackEnd</h2>
+
+        <div class="ui form">
+            <div class="inline field">
+                <label>Tipo de texto a ser analisado:</label>
+                <select name="type">
+                    <option value="1">Publicação</option>
+                    <option value="2">ATA</option>
+                </select>
+            </div>
+            <div class="ui" id="rangeConf">
+                <label style="margin-left: 10px;">Confiança de <span id="display-3"></span>% </label>
+                <div class="ui range blue" id="range-3"></div>
+            </div>
+            <div class="field">
+                <label></label>
+                <textarea></textarea>
+            </div>
+
+            <div class="ui small message">
+                <p><strong> Retorno da IA: Com providencia - 86% Confiança de IA</strong></p>
+            </div>
+        </div>
+
+
+        <div class="ui horizontal divider">
+
+        </div>
+        <div class="ui form">
+            <button class="ui button left floated">
+                Exemplo ATA
+            </button>
+            <div class="ui button left floated" tabindex="0">
+                Exemplo Publicação
+            </div>
+            <button class="ui primary button right floated">
+                Enviar
+            </button>
+            <button onclick="config()" class="ui right floated icon button">
+                <i class="cog icon"></i>
+                Configurações
+            </button>
+        </div>
+
+
+        <div class="ui modal">
+            <i class="close icon"></i>
+            <div class="header">
+                Configurações de End-Point IA
+            </div>
+            <div class="content">
+                <div class="ui form">
+                    <div class="field">
+                        <label>Login</label>
+                        <input type="text" value="admin" name="user">
+                    </div>
+                    <div class="field">
+                        <label>Senha:</label>
+                        <input type="password" value="sassine" name="pass">
+                    </div>
+                </div>
+
+                <div class="ui horizontal divider"> AND </div>
+                <div class="ui form">
+                    <div class="field">
+                        <label>Rota para Classificação da ATA: </label>
+                        <input type="text" name="ata" placeholder="http://apitest.com/v1/ata">
+                    </div>
+                    <div class="field">
+                        <label>Rota para Classificação da Publicação:</label>
+                        <input type="text" name="publication" placeholder="http://apitest.com/v1/publication">
+                    </div>
+                </div>
+
+            </div>
+            <div class="actions">
+                <div onClick="save()" class="ui positive right labeled icon button">
+                    SALVAR
+                    <i class="checkmark icon"></i>
+                </div>
+            </div>
+        </div>
+
+        <p></p>
+    </div>
+</body>

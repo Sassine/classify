@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.3" icons="true" automaticImage="PNG" always-add-relationships="false" generalizations="true" 
+  realizations="true" associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <package id="1" language="java" name="br.com.sassine.restclassify.api.adress.controller" project="RestClassify" 
+    file="/RestClassify/src/main/java/br/com/sassine/restclassify/api/adress/controller" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="50" width="301" x="12" y="33"/>    
+    <display autosize="true" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <class id="2" language="java" name="br.com.sassine.restclassify.api.adress.controller.AdressController" 
+    project="RestClassify" 
+    file="/RestClassify/src/main/java/br/com/sassine/restclassify/api/adress/controller/AdressController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="159" y="215"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="br.com.sassine.restclassify.api.controller.AtaController" project="RestClassify" 
+    file="/RestClassify/src/main/java/br/com/sassine/restclassify/api/controller/AtaController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="117" width="185" x="454" y="123"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="br.com.sassine.restclassify.api.controller.PublicationController" 
+    project="RestClassify" 
+    file="/RestClassify/src/main/java/br/com/sassine/restclassify/api/controller/PublicationController.java" 
+    binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="816" y="182"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <package id="5" language="java" name="br.com.sassine.restclassify.api.controller" project="RestClassify" 
+    file="/RestClassify/src/main/java/br/com/sassine/restclassify/api/controller" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="50" width="482" x="450" y="59"/>    
+    <display autosize="false" stereotype="true" sort-features="false" accessors="true"/>  
+  </package>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

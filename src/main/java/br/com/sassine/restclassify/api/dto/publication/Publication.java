@@ -3,7 +3,7 @@ package br.com.sassine.restclassify.api.dto.publication;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Publicacao {
+public class Publication {
 	PublicationContentDTO Publicacao;
 
 	public PublicationContentDTO getPublicacao() {
